@@ -1,0 +1,40 @@
+// Pin definitions
+const int potPin = A0;        // Analog pin connected to the potentiometer
+const int threshold = 700;    // Threshold value for sending an alert
+
+void setup() {
+  Serial.begin(9600);         // Initialize serial communication at 9600 baud rate
+  pinMode(potPin, INPUT);     // Set potentiometer pin as input
+}
+
+void loop() {
+  // Read analog value from potentiometer
+  int potValue = analogRead(potPin);
+  
+  // Print the current potentiometer value
+  Serial.print("Potentiometer Value: ");
+  Serial.println(potValue);
+  
+  // Check if potentiometer value exceeds threshold
+  if (potValue > threshold) {
+    Serial.println("ALERT: Potentiometer value above threshold!");
+  }
+  
+  // Delay before the next reading
+  delay(1000);  // 1-second delay between readings
+}
+
+
+
+
+
+
+// Serial.begin(9600) is a function used in Arduino programming to initialize serial 
+// communication between the Arduino board and your computer or another device (like a 
+// display, sensor, or serial monitor).
+
+// The 9600 in Serial.begin(9600) represents the baud rate, which is the number of bits transmitted per second (bps). 
+// In this case, it's 9600 bits per second (or 9.6 kilobits per second).
+
+// Analog pins on an Arduino board (like A0, A1, A2, etc.) are used to read analog signals.
+
